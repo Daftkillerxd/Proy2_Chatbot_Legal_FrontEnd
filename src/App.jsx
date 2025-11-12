@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
-const API_BASE = "http://localhost:5000";
-
+const API_BASE = "https://proy2-chatbot-legal.onrender.com";
 const DEFAULT_NAME = "Invitado";
 const DEFAULT_EMAIL = "inv@ejemplo.com";
 
