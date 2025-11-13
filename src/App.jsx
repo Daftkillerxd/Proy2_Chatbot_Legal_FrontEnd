@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
-const API_BASE = "https://proy2-chatbot-legal.onrender.com";
+const API_BASE =
+  window.API_BASE ||
+  import.meta.env?.VITE_API_BASE ||
+  "https://proy2-chatbot-legal.onrender.com";
+  
 const DEFAULT_NAME = "Invitado";
 const DEFAULT_EMAIL = "inv@ejemplo.com";
 
