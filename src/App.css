@@ -677,3 +677,152 @@ html, body {
   }
   .chat-window { max-height: 50svh; }
 }
+/***** OVERRIDES — pégalo AL FINAL de tu CSS *****/
+
+/* 1) Oculta el título grande "Chatbot Legal Especializado" y su subtítulo */
+.hero h1,
+.hero p {
+  display: none !important;
+}
+
+/* 2) Centra la tarjeta del chat dentro del marco y quita cualquier doble scroll */
+.main {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;   /* centra horizontal */
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.card {
+  width: 100% !important;
+  max-width: 980px !important;      /* ancho visual de la tarjeta */
+  margin: 8px auto !important;      /* centrada */
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.chat-window {
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow: auto !important;        /* el único scroll debe ser aquí */
+}
+
+/* 3) Sidebar: que el botón de “nuevo chat” se note */
+.sidebar-header .new-chat-btn {
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 20px !important;
+  border: 1px solid #ff9f43 !important;
+  background: linear-gradient(135deg,#fff7ed,#fffbeb) !important;
+  box-shadow: 0 6px 14px rgba(255,159,67,.25) !important;
+  color: #ff8a00 !important;
+}
+
+/* 4) Sidebar: lista con alto completo y scroll propio */
+.sidebar {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+}
+.chat-list {
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow: auto !important;
+  margin: 8px 0 0 !important;
+  border-radius: 12px !important;
+  border: 1px solid #ececec !important;
+  background: #fff !important;
+}
+
+/* 5) Ítems del historial: muestra SIEMPRE la acción de eliminar y que se entienda */
+.chat-item {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important; /* nombre + acciones */
+  align-items: center !important;
+  padding: 10px 10px !important;
+  gap: 8px !important;
+  border-bottom: 1px dashed #f0f0f0 !important;
+}
+.chat-item:last-child { border-bottom: 0 !important; }
+.chat-item.active { background: #fff7ea !important; }
+
+/* Contenedor para acciones (si ya tienes .chat-delete suelta, no pasa nada) */
+.chat-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+/* Botón/el ícono de borrar: rojo, visible y con feedback */
+.chat-delete {
+  opacity: 1 !important;
+  color: #ef4444 !important;
+  font-size: 16px !important;        /* si usas un ícono font */
+  padding: 4px 6px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  transition: background .15s ease, transform .05s ease, color .15s ease !important;
+}
+.chat-delete:hover {
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+}
+.chat-delete:active {
+  transform: translateY(1px) !important;
+}
+
+/* 6) Chips/encabezado de la tarjeta: mantén el cuerpo bien “dentro del marco” */
+.card-header,
+.chips,
+.chat-window,
+.composer {
+  padding-left: 18px !important;
+  padding-right: 18px !important;
+}
+
+/* 7) Scrollbars finas y consistentes (se aplican a lista e historial) */
+.chat-window::-webkit-scrollbar,
+.chat-list::-webkit-scrollbar { width: 8px; height: 8px; }
+.chat-window::-webkit-scrollbar-thumb,
+.chat-list::-webkit-scrollbar-thumb {
+  background: #d8d8d8; border-radius: 6px;
+}
+.chat-window::-webkit-scrollbar-thumb:hover,
+.chat-list::-webkit-scrollbar-thumb:hover { background: #c6c6c6; }
+.chat-window, .chat-list { scrollbar-width: thin; scrollbar-color: #d8d8d8 transparent; }
+
+/* 8) Layout general: dos columnas sin desbordes */
+.layout {
+  display: grid !important;
+  grid-template-columns: 300px 1fr !important; /* sidebar + contenido */
+  gap: 16px !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* 9) Quitar cualquier resto de scroll global */
+html, body {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+.page, .wrap {
+  min-height: 100svh !important;
+  display: flex !important;
+  flex: 1 !important;
+  overflow: hidden !important;
+}
+
+/* 10) Responsive: una sola columna en móvil y todo sigue centrado */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr !important; }
+  .sidebar { order: 2; max-height: 40svh; }
+  .card   { order: 1; max-width: 100% !important; }
+  .chat-window { max-height: 50svh; }
+}
