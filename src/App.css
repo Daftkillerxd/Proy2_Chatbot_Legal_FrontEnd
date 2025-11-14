@@ -890,3 +890,67 @@ html, body {
     max-height: calc(100svh - 420px); /* más espacio al teclado/viewport */
   }
 }
+
+/* 0) Reset de márgenes fantasma arriba del card */
+.hero { margin: 0; padding: 0 4px; }
+.hero p { display: none; }            /* ya no muestras el subtítulo */
+.card   { margin-top: 0; }
+
+/* 1) Centrar el “marco” del chat dentro del canvas */
+.page .card {
+  max-width: 920px;                   /* ancho máximo del cuadro naranja */
+  margin-inline: auto;                /* centrado */
+}
+
+/* 2) SOLO scrollea la conversación cuando el contenido supera el alto disponible */
+.chat-window {
+  /* importante: NO fijar height; que crezca de forma natural */
+  height: auto;
+  min-height: 160px;                  /* que no se colapse en chats vacíos */
+  /* tope de crecimiento en función del viewport:
+     ajusta 360–420px según lo que midan tu header + chips + composer */
+  max-height: clamp(260px, calc(100dvh - 380px), 70vh);
+  overflow-y: auto;                   /* scroll solo si hace falta */
+  overflow-x: hidden;
+  padding-right: 10px;
+  scrollbar-gutter: stable both-edges;/* evita “saltos” al aparecer la barra */
+}
+
+/* 3) Evita “doble scroll”: el contenedor de la tarjeta NO debe forzar altura */
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;                      /* deja que .chat-window gestione su overflow */
+  overflow: hidden;                   /* sin barras en el card */
+}
+
+/* 4) La columna principal tampoco debe forzar scroll extra */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* 5) Sidebar: lista con su propio scroll, más larga y visible en desktop */
+.chat-list {
+  flex: 1;
+  min-height: 0;
+  max-height: calc(100dvh - 320px);   /* ocupa más alto sin salir del marco */
+  overflow: auto;
+}
+
+/* 6) Scrollbars finas (solo cuando se necesitan) */
+.chat-window::-webkit-scrollbar,
+.chat-list::-webkit-scrollbar { width: 8px; height: 8px; }
+.chat-window::-webkit-scrollbar-thumb,
+.chat-list::-webkit-scrollbar-thumb { background:#d8d8d8; border-radius: 6px; }
+.chat-window, .chat-list { scrollbar-width: thin; scrollbar-color:#d8d8d8 transparent; }
+
+/* 7) Móviles: sube un poco el tope para evitar quedar apretado */
+@media (max-width: 900px) {
+  .page .card { max-width: 100%; }
+  .chat-window {
+    max-height: calc(100svh - 420px); /* más espacio al teclado/viewport */
+  }
+}
