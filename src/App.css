@@ -1028,3 +1028,25 @@ html, body {
   width: 100% !important;
   max-width: 100% !important;
 }
+/* === Eliminar separación entre sidebar y chat === */
+
+/* Quita el gap completamente */
+.layout {
+  gap: 0 !important;
+}
+
+/* Asegura que el sidebar no tenga padding lateral que genere hueco */
+.sidebar {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Quita bordes laterales al card para que se vea unido */
+.card {
+  border-left: none !important;
+}
+
+/* Puedes añadir un borde suave SOLO al sidebar si quieres distinguir */
+.sidebar {
+  border-right: 1px solid #e5e7eb !important;
+}
