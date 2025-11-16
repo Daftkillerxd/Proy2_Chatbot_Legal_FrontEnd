@@ -4,7 +4,7 @@ import "./App.css";
 const API_BASE =
   window.API_BASE ||
   import.meta.env?.VITE_API_BASE ||
-  "https://proy2-chatbot-legal.onrender.com";
+  "https://proy2chatbotlegalbackend-production.up.railway.app";
   
 const DEFAULT_NAME = "Invitado";
 const DEFAULT_EMAIL = "inv@ejemplo.com";
