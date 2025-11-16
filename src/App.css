@@ -1050,3 +1050,45 @@ html, body {
 .sidebar {
   border-right: 1px solid #e5e7eb !important;
 }
+/* === FIX: eliminar espacios arriba y abajo === */
+
+/* El body no debe empujar nada hacia abajo */
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  align-items: stretch !important;
+}
+
+/* El contenedor principal no debe llevar padding extra */
+.page {
+  padding: 0 !important;
+  margin: 0 auto !important;
+  max-width: 1400px !important; /* o el valor que elegiste antes */
+  width: 100% !important;
+}
+
+/* La capa wrap debe ocupar todo sin dejar margen */
+.wrap {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100% !important;
+}
+
+/* Elimina separación vertical fantasma del hero */
+.hero {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ajusta layout para que arranque exactamente arriba */
+.layout {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  height: 100% !important;
+}
+
+/* La card tampoco debe tener separación superior innecesaria */
+.card {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
