@@ -1092,3 +1092,39 @@ body {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+/* === FIX FINAL PARA QUITAR TODO ESPACIO INFERIOR === */
+
+/* 1) El contenedor principal debe ocupar todo el alto real */
+.page, .wrap, .main {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 2) La tarjeta del chat DEBE extenderse verticalmente hasta abajo */
+.card {
+  flex: 1 !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* 3) TÚ chat-window se ajusta y el único scroll estará dentro de él */
+.chat-window {
+  flex: 1 !important;
+  min-height: 0 !important;
+  height: calc(100vh - 240px) !important; 
+  /* Puedes ajustar 240px si tu header/chips/composer es más alto */
+  overflow-y: auto !important;
+}
+
+/* 4) El composer SIEMPRE pegado abajo sin hueco */
+.composer {
+  margin: 0 !important;
+  padding-bottom: 12px !important;
+  border-top: 1px solid #ffe0c2 !important;
+  position: relative !important;
+  bottom: 0 !important;
+}
