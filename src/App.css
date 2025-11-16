@@ -1002,3 +1002,29 @@ html, body {
   height: 100vh !important;
   overflow: hidden !important;
 }
+/* === Aumentar el ancho útil del layout (más amplio, sin aplastar el chat) === */
+
+.page {
+  width: 100%;
+  max-width: 1400px !important;   /* antes era 1120px → ahora más amplio */
+  margin-inline: auto !important;
+  padding: 32px 20px !important;
+}
+
+/* Permite que la columna derecha (el chat) use más espacio */
+.layout {
+  grid-template-columns: 280px 1fr !important; /* sidebar + chat */
+  gap: 24px !important;                         /* más respiración */
+}
+
+/* El card del chat debe poder expandirse más */
+.card {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Evita límites internos que aplastan el contenido */
+.main {
+  width: 100% !important;
+  max-width: 100% !important;
+}
