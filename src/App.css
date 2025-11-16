@@ -954,3 +954,51 @@ html, body {
     max-height: calc(100svh - 420px); /* más espacio al teclado/viewport */
   }
 }
+
+/* === FIX DEFINITIVO DEL CHAT QUE SE VA ABAJO === */
+
+/* 1) La tarjeta NO debe forzar altura total */
+.card {
+  height: auto !important;
+  max-height: calc(100vh - 160px) !important; /* ajusta si tu header es más grande */
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+/* 2) La ventana del chat crece sola, pero no empuja el composer fuera */
+.chat-window {
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: 100px !important;
+  max-height: calc(100vh - 300px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* 3) El composer SIEMPRE visible pegado abajo */
+.composer {
+  position: sticky !important;
+  bottom: 0 !important;
+  background: #fffaf5 !important;
+  border-top: 1px solid #ffe0c2 !important;
+  z-index: 10 !important;
+}
+
+/* 4) Contenedor principal ajustado para evitar scroll global */
+.main {
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.page, .wrap {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+html, body {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
