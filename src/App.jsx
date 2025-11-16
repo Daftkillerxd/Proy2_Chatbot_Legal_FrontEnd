@@ -24,10 +24,10 @@ export default function App() {
   const listRef = useRef(null);
 
   const suggestions = [
-    "📜 ¿Cómo se distribuye una herencia sin testamento?",
-    "📁 ¿Qué documentos necesito para un proceso de herencia?",
-    "👨‍👩‍👧 ¿Cuáles son los derechos de los herederos forzosos?",
-    "⏳ ¿Cuánto tiempo toma un proceso de sucesión?",
+    "👪 ¿Quiénes heredan primero en una sucesión intestada?",
+    "📄 ¿Qué documentos necesito para iniciar una sucesión intestada?",
+    "🏠 ¿Cómo se reparte un inmueble cuando no hay testamento?",
+    "⏳ ¿Cuánto demora un trámite de sucesión intestada en Perú?",
   ];
 
   // Scroll al final cuando cambian los mensajes
